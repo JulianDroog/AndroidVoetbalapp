@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import be.thomasmore.myapplication.models.Competitie;
+
 public class CompetitieAdapter extends ArrayAdapter<Competitie> {
 
     private final Context context;

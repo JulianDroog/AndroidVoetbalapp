@@ -2,6 +2,7 @@ package be.thomasmore.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -18,6 +19,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import be.thomasmore.myapplication.models.Competitie;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -57,8 +60,11 @@ public class MainActivity extends AppCompatActivity {
         listViewCompetities.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView parentView, View childView, int position, long id) {
-//                toon(competities.get(position).getOs());
-                startActivity(new Intent(MainActivity.this, MatchesActivity.class));
+                Intent intent = new Intent(MainActivity.this, MatchesActivity.class);
+                Competitie competitie = competities.get(position);
+                int compId = competitie.getId();
+                intent.putExtra("id", Integer.toString(compId));
+                startActivity(intent);
             }
         });
     }
@@ -66,14 +72,14 @@ public class MainActivity extends AppCompatActivity {
 
     private void vulPlatforms()
     {
-        competities.add(new Competitie("Jupiler Pro League", "be"));
-        competities.add(new Competitie("Eredivisie", "nl"));
-        competities.add(new Competitie("Ligue 1", "fr"));
-        competities.add(new Competitie("Premier League", "uk"));
-        competities.add(new Competitie("Serie A", "it"));
-        competities.add(new Competitie("Bundesliga", "de"));
-        competities.add(new Competitie("La liga", "es"));
-        competities.add(new Competitie("Primeira Liga", "pt"));
+        competities.add(new Competitie(68,"Jupiler Pro League", "be"));
+        competities.add(new Competitie(196,"Eredivisie", "nl"));
+        competities.add(new Competitie(5,"Ligue 1", "fr"));
+        competities.add(new Competitie(2,"Premier League", "uk"));
+        competities.add(new Competitie(4,"Serie A", "it"));
+        competities.add(new Competitie(1,"Bundesliga", "de"));
+        competities.add(new Competitie(3,"La liga", "es"));
+        competities.add(new Competitie(8,"Primeira Liga", "pt"));
     }
 
 

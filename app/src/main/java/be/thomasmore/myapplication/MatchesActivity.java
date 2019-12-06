@@ -3,13 +3,20 @@ package be.thomasmore.myapplication;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import org.w3c.dom.Text;
+
 public class MatchesActivity extends AppCompatActivity {
+
+    private String compId;
+    private TextView compText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,6 +26,12 @@ public class MatchesActivity extends AppCompatActivity {
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(navListener);
+
+        Intent intent = getIntent();
+        compId = intent.getStringExtra("id");
+
+        compText = findViewById(R.id.compid);
+        compText.setText(compId);
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =

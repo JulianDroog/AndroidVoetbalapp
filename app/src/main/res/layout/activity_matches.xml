@@ -4,9 +4,14 @@
     android:layout_width="match_parent" android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/compid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Matches"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:textColor="@android:color/black"
+        android:textSize="30sp"
         />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
