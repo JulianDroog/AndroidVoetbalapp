@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Footscore</string>
+    <string name="title_home">Home</string>
+    <string name="title_favoriteTeams">Teams</string>
+    <string name="title_favoriteMatches">Matches</string>
+    <string name="title_settings">Settings</string>
 </resources>
