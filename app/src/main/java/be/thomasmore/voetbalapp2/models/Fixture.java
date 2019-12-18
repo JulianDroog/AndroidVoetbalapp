@@ -3,18 +3,28 @@ package be.thomasmore.voetbalapp2.models;
 public class Fixture {
     private String id;
     private String time;
-    private String home_team;
-    private String away_team;
+    private String date;
+    private String home_name;
+    private String away_name;
 
     public Fixture() {
 
     }
 
-    public Fixture(String id, String time, String home_team, String away_team) {
+    public Fixture(String id, String time, String date, String home_name, String away_name) {
         this.id = id;
         this.time = time;
-        this.home_team = home_team;
-        this.away_team = away_team;
+        this.date = date;
+        this.home_name = home_name;
+        this.away_name = away_name;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public String getId() {
@@ -33,19 +43,19 @@ public class Fixture {
         this.time = time;
     }
 
-    public String getHome_team() {
-        return home_team;
+    public String getHome_name() {
+        return home_name;
     }
 
-    public void setHome_team(String home_team) {
-        this.home_team = home_team;
+    public void setHome_name(String home_name) {
+        this.home_name = home_name;
     }
 
-    public String getAway_team() {
-        return away_team;
+    public String getAway_name() {
+        return away_name;
     }
 
-    public void setAway_team(String away_team) {
-        this.away_team = away_team;
+    public void setAway_name(String away_name) {
+        this.away_name = away_name;
     }
 }

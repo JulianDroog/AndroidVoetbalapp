@@ -52,6 +52,11 @@ public class HomeFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView parentView, View childView, int position, long id) {
                 Fragment matchesFragment = new MatchesFragment();
+                Bundle bundle = new Bundle();
+                Competitie competitie = competities.get(position);
+                int compId = competitie.getId();
+                bundle.putInt("compId", compId);
+                matchesFragment.setArguments(bundle);
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.nav_host_fragment, matchesFragment);
                 transaction.addToBackStack(null);
