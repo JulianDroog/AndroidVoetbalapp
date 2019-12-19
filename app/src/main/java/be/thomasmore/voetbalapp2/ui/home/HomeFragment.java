@@ -8,7 +8,6 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -16,7 +15,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import be.thomasmore.voetbalapp2.CompetitieAdapter;
-import be.thomasmore.voetbalapp2.MainActivity;
 import be.thomasmore.voetbalapp2.R;
 import be.thomasmore.voetbalapp2.models.Competitie;
 import be.thomasmore.voetbalapp2.ui.matches.MatchesFragment;
@@ -40,7 +38,11 @@ public class HomeFragment extends Fragment {
         //BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         //bottomNavigationView.setOnNavigationItemSelectedListener(navListener);
 
+        if (competities != null){
+            competities.clear();
+        }
         vulPlatforms();
+
 
         View rootView = inflater.inflate(R.layout.fragment_home,
                 container, false);
@@ -67,11 +69,11 @@ public class HomeFragment extends Fragment {
 
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        ActionBar actionBar = ((MainActivity)getActivity()).getSupportActionBar();
-    }
+//    @Override
+//    public void onResume() {
+//        super.onResume();
+//        ActionBar actionBar = ((MainActivity)getActivity()).getSupportActionBar();
+//    }
 
 
     private void vulPlatforms()
@@ -83,9 +85,6 @@ public class HomeFragment extends Fragment {
         competities.add(new Competitie(4,"Serie A", "it"));
         competities.add(new Competitie(1,"Bundesliga", "de"));
         competities.add(new Competitie(3,"La liga", "es"));
-        competities.add(new Competitie(8,"Primeira Liga", "pt"));
-        competities.add(new Competitie(8,"Primeira Liga", "pt"));
-        competities.add(new Competitie(8,"Primeira Liga", "pt"));
         competities.add(new Competitie(8,"Primeira Liga", "pt"));
     }
 }
