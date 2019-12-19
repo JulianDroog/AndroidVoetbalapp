@@ -13,48 +13,50 @@ import be.thomasmore.voetbalapp2.models.Fixture;
 
 public class JsonHelper {
 
-    public List<Fixture> getFixtures(String result) {
+    public List<Fixture> getFixtures(String jsonTekst) {
         List<Fixture> lijst = new ArrayList<Fixture>();
-
         try {
-            JSONObject rootJsonObj = new JSONObject(result);
-            JSONArray jsonArrayFixtures = rootJsonObj.optJSONArray("fixtures");
+            JSONObject jsonObject = new JSONObject(jsonTekst);
+            JSONArray jsonArrayFixtures = jsonObject.getJSONArray("fixtures");
             for (int i = 0; i < jsonArrayFixtures.length(); i++) {
-                JSONObject jsonObjectVak = jsonArrayFixtures.optJSONObject(i);
+                JSONObject jsonObjectFixture = jsonArrayFixtures.getJSONObject(i);
                 Fixture fixture = new Fixture();
-                fixture.setId(jsonObjectVak.optString("id"));
-                fixture.setDate(jsonObjectVak.optString("date"));
-                fixture.setTime(jsonObjectVak.optString("time"));
-                fixture.setHome_name(jsonObjectVak.optString("home_name"));
-                fixture.setAway_name(jsonObjectVak.optString("away_name"));
+                fixture.setId(jsonObjectFixture.getLong("id"));
+                fixture.setDate(jsonObjectFixture.getString("date"));
+                fixture.setTime(jsonObjectFixture.getString("time"));
+                fixture.setHome_name(jsonObjectFixture.getString("home_name"));
+                fixture.setAway_name(jsonObjectFixture.getString("away_name"));
                 lijst.add(fixture);
             }
         } catch (JSONException e) {
             Log.e("JSON Parser", "Error parsing data " + e.toString());
         }
-
         return lijst;
     }
 
 
 
-//    public List<Vak> getVakken(String jsonTekst) {
-//        List<Vak> lijst = new ArrayList<Vak>();
+//    public List<Fixture> getVakken(String jsonTekst) {
+//        List<Fixture> lijst = new ArrayList<Fixture>();
 //
 //        try {
-//            JSONArray jsonArrayVakken = new JSONArray(jsonTekst);
+//            JSONObject jsonObject = new JSONObject(jsonTekst);
+//            JSONArray jsonArrayVakken = jsonObject.getJSONArray("fixtures");
 //            for (int i = 0; i < jsonArrayVakken.length(); i++) {
 //                JSONObject jsonObjectVak = jsonArrayVakken.getJSONObject(i);
 //
-//                Vak vak = new Vak();
-//                vak.setId(jsonObjectVak.getLong("id"));
-//                vak.setNaam(jsonObjectVak.getString("naam"));
+//                Fixture vak = new Fixture();
+//                vak.setHome_name(jsonObjectVak.getString("home_name"));
+//                vak.setAway_name(jsonObjectVak.getString("away_name"));
 //                lijst.add(vak);
 //            }
 //        } catch (JSONException e) {
 //            Log.e("JSON Parser", "Error parsing data " + e.toString());
 //        }
-//
+//        for (Fixture item: lijst
+//             ) {
+//            Log.d("fixutes",  item.getAway_name());
+//        }
 //        return lijst;
 //    }
 //

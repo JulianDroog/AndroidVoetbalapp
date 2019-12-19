@@ -1,7 +1,7 @@
 package be.thomasmore.voetbalapp2.models;
 
 public class Fixture {
-    private String id;
+    private Long id;
     private String time;
     private String date;
     private String home_name;
@@ -11,7 +11,7 @@ public class Fixture {
 
     }
 
-    public Fixture(String id, String time, String date, String home_name, String away_name) {
+    public Fixture(Long id, String time, String date, String home_name, String away_name) {
         this.id = id;
         this.time = time;
         this.date = date;
@@ -27,11 +27,11 @@ public class Fixture {
         this.date = date;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
