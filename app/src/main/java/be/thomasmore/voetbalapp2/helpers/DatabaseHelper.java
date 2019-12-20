@@ -30,8 +30,8 @@ public class DatabaseHelper extends SQLiteOpenHelper{
                 "away_team TEXT, " +
                 "date TEXT, " +
                 "time TEXT, " +
-                "home_score TEXT, " +
-                "away_score TEXT, " +
+                "home_score INTEGER, " +
+                "away_score INTEGER, " +
                 "status TEXT )";
         db.execSQL(CREATE_TABLE_Fixture);
     }

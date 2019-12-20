@@ -54,7 +54,7 @@ public class MatchesFragment extends Fragment {
                 fixtureAdapter = new FixtureAdapter(rootView.getContext(), lijstmatches);
                 listViewMatches.setAdapter(fixtureAdapter);
             }
-        }, 300);
+        }, 1000);
         Log.d("Count: ", Integer.toString(lijstmatches.size()));
         ((MainActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         listViewMatches.setOnItemClickListener(new AdapterView.OnItemClickListener() {

@@ -1,15 +1,306 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <TextView
-        android:id="@+id/text_lineup"
+    <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        android:text="lineup"/>
-</LinearLayout>
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="10dp">
+
+        <TableRow
+            android:id="@+id/firstRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/text_homepossesion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="UserId"
+                android:textColor="@android:color/black"
+                android:textAlignment="center"/>
+
+            <TextView
+                android:id="@+id/text_awaypossesion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Location"
+                android:textColor="@android:color/black"
+                android:textAlignment="center"/>
+
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/secondRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <TextView
+                android:id="@+id/text_homeattempts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="UserId"
+                android:textColor="@android:color/black"
+                android:textAlignment="center"/>
+
+            <TextView
+                android:id="@+id/text_awayattempts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Location"
+                android:textColor="@android:color/black"
+                android:textAlignment="center"/>
+
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/thirdRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <TextView
+                android:id="@+id/text_homeOntarget"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="UserId"
+                android:textColor="@android:color/black"
+                android:textAlignment="center"/>
+
+            <TextView
+                android:id="@+id/text_awayOntarget"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Location"
+                android:textColor="@android:color/black"
+                android:textAlignment="center"/>
+
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/fourthRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center">
+
+            <TextView
+                android:id="@+id/text_homeyellowcard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="UserId"
+                android:textColor="@android:color/black"
+                android:textAlignment="center"/>
+
+            <TextView
+                android:id="@+id/text_awayyellowcard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Location"
+                android:textColor="@android:color/black"
+                android:textAlignment="center"/>
+
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/sixRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center">
+
+            <TextView
+                android:id="@+id/text_homeredcard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="UserId"
+                android:textColor="@android:color/black"
+                android:textAlignment="center"/>
+
+            <TextView
+                android:id="@+id/text_awayredcard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Location"
+                android:textColor="@android:color/black"
+                android:textAlignment="center"/>
+
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/sevenRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center">
+
+            <TextView
+                android:id="@+id/text_homeredcard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="UserId"
+                android:textColor="@android:color/black"
+                android:textAlignment="center"/>
+
+            <TextView
+                android:id="@+id/text_awayredcard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Location"
+                android:textColor="@android:color/black"
+                android:textAlignment="center"/>
+
+
+        </TableRow>
+        <TableRow
+            android:id="@+id/eightRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center">
+
+            <TextView
+                android:id="@+id/text_homeredcard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="UserId"
+                android:textColor="@android:color/black"
+                android:textAlignment="center"/>
+
+            <TextView
+                android:id="@+id/text_awayredcard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Location"
+                android:textColor="@android:color/black"
+                android:textAlignment="center"/>
+
+
+        </TableRow>
+        <TableRow
+            android:id="@+id/nineRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center">
+
+            <TextView
+                android:id="@+id/text_homeredcard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="UserId"
+                android:textColor="@android:color/black"
+                android:textAlignment="center"/>
+
+            <TextView
+                android:id="@+id/text_awayredcard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Location"
+                android:textColor="@android:color/black"
+                android:textAlignment="center"/>
+
+
+        </TableRow>
+        <TableRow
+            android:id="@+id/tenRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center">
+
+            <TextView
+                android:id="@+id/text_homeredcard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="UserId"
+                android:textColor="@android:color/black"
+                android:textAlignment="center"/>
+
+            <TextView
+                android:id="@+id/text_awayredcard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Location"
+                android:textColor="@android:color/black"
+                android:textAlignment="center"/>
+
+
+        </TableRow>
+        <TableRow
+            android:id="@+id/elevenRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center">
+
+            <TextView
+                android:id="@+id/text_homeredcard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="UserId"
+                android:textColor="@android:color/black"
+                android:textAlignment="center"/>
+
+            <TextView
+                android:id="@+id/text_awayredcard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Location"
+                android:textColor="@android:color/black"
+                android:textAlignment="center"/>
+
+
+        </TableRow>
+        <TableRow
+            android:id="@+id/fifthRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center">
+
+            <TextView
+                android:id="@+id/text_homeredcard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="UserId"
+                android:textColor="@android:color/black"
+                android:textAlignment="center"/>
+
+            <TextView
+                android:id="@+id/text_awayredcard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Location"
+                android:textColor="@android:color/black"
+                android:textAlignment="center"/>
+
+
+        </TableRow>
+
+    </TableLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

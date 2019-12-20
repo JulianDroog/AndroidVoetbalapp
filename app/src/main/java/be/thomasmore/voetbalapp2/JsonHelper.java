@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import be.thomasmore.voetbalapp2.models.Fixture;
+import be.thomasmore.voetbalapp2.models.Stats;
 
 public class JsonHelper {
 
@@ -108,6 +109,28 @@ public class JsonHelper {
             Log.e("JSON Parser", "Error parsing data " + e.toString());
         }
         return fixture;
+    }
+
+    public Stats getJsonStats (String result) {
+        Stats stats = new Stats();
+
+        try {
+            JSONObject rootobject = new JSONObject(result);
+            JSONObject jsonObjectFixture = rootobject.getJSONObject("stats");
+            stats.setAway_attempts(jsonObjectFixture.getInt("away_attempts"));
+            stats.setAway_ontarget(jsonObjectFixture.getInt("away_ontarget"));
+            stats.setAway_possesion(jsonObjectFixture.getInt("away_possesion"));
+            stats.setAway_redcard(jsonObjectFixture.getInt("away_redcard"));
+            stats.setHome_yellowcard(jsonObjectFixture.getInt("away_yellowcard"));
+            stats.setHome_attempts(jsonObjectFixture.getInt("home_attempts"));
+            stats.setHome_ontarget(jsonObjectFixture.getInt("home_ontarget"));
+            stats.setHome_possesion(jsonObjectFixture.getInt("home_possesion"));
+            stats.setHome_redcard(jsonObjectFixture.getInt("home_redcard"));
+            stats.setHome_yellowcard(jsonObjectFixture.getInt("home_yellowcard"));
+        } catch (JSONException e) {
+            Log.e("JSON Parser", "Error parsing data " + e.toString());
+        }
+        return stats;
     }
 
 }
