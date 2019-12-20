@@ -22,6 +22,6 @@
 
     <fragment
         android:id="@+id/navigation_settings"
-        android:name="be.thomasmore.voetbalapp2.ui.notifications.NotificationsFragment"
+        android:name="be.thomasmore.voetbalapp2.ui.settings.SettingsFragment"
         tools:layout="@layout/fragment_settings" />
 </navigation>
