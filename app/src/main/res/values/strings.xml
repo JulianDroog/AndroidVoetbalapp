@@ -9,4 +9,6 @@
         en waar de gebruiker zijn favoriete wedstrijden en teams kan selecteren.
         Footscore geeft dus de mogelijkheid om competities per land op te bekijken. Per competitie is ook elke wedstrijd te zien die gespeeld wordt.
         De favorieten die de gebruiker aanduid kun je terugvinden op de pagina "Favorieten". In deze Info pagina kun je informatie over de app terugvinden en andere zaken.</string>
+    <string name="contactinfo">r0697475@student.thomasmore.be</string>
+    <string name="contactinfo2">r0676862@student.thomasmore.be</string>
 </resources>
