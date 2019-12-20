@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/navigation_favoriteTeams"
-        android:name="be.thomasmore.voetbalapp2.ui.dashboard.DashboardFragment"
+        android:name="be.thomasmore.voetbalapp2.ui.notifications.NotificationsFragment"
         tools:layout="@layout/fragment_notifications" />
 
     <fragment

@@ -12,4 +12,20 @@
         De favorieten die de gebruiker aanduid kun je terugvinden op de pagina "Favorieten". In deze Info pagina kun je informatie over de app terugvinden en andere zaken.</string>
     <string name="contactinfo">r0697475@student.thomasmore.be</string>
     <string name="contactinfo2">r0676862@student.thomasmore.be</string>
+
+
+
+    <string-array name="competities">
+        <item>Kies competitie ...</item>
+        <item>Jupiler Pro League</item>
+        <item>Eredivisie</item>
+        <item>Ligue 1</item>
+        <item>Premier League</item>
+        <item>Serie A</item>
+        <item>Bundesliga</item>
+        <item>La liga</item>
+        <item>Primeira Liga</item>
+    </string-array>
+
+
 </resources>
