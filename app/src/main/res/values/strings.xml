@@ -27,5 +27,32 @@
         <item id="8">Primeira Liga</item>
     </string-array>
 
+    <string name="thuisploeg">
+        M. Ter Stegen \t\t 1 \n
+        N. Semedo \t\t 2 \n
+        G. Pique \t\t 3 \n
+        C. Lenglet \t\t 15 \n
+        J. Alba \t\t 18 \n
+        S. Busquets \t\t 5 \n
+        I. Rakitic \t\t 4 \n
+        F. De Jong \t\t 21 \n
+        L. Suárez \t\t 9 \n
+        L. Messi \t\t 10 \n
+        A. Griezmann \t\t 17 \n
+    </string>
+
+    <string name="uitploeg">
+       13 \t\t T. Courtois \n
+        2 \t\t Carvajal \n
+        4 \t\t S. Ramos \n
+        5 \t\t R. Varane \n
+        12 \t\t Marcelo \n
+        14 \t\t Casemiro \n
+        8 \t\t T. Kroos \n
+        10 \t\t L. Modric \n
+        25 \t\t Vinicius Jr. \n
+        9 \t\t K. Benzema \n
+        7 \t\t E. Hazard \n
+    </string>
 
 </resources>
