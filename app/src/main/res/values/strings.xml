@@ -16,15 +16,15 @@
 
 
     <string-array name="competities">
-        <item>Kies competitie ...</item>
-        <item>Jupiler Pro League</item>
-        <item>Eredivisie</item>
-        <item>Ligue 1</item>
-        <item>Premier League</item>
-        <item>Serie A</item>
-        <item>Bundesliga</item>
-        <item>La liga</item>
-        <item>Primeira Liga</item>
+        <item >Kies competitie ...</item>
+        <item id="68">Jupiler Pro League</item>
+        <item id="196">Eredivisie</item>
+        <item id="5">Ligue 1</item>
+        <item id="2">Premier League</item>
+        <item id="4">Serie A</item>
+        <item id="1">Bundesliga</item>
+        <item id="3">La liga</item>
+        <item id="8">Primeira Liga</item>
     </string-array>
 
 

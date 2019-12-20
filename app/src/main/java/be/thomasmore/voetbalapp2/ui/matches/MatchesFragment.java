@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
@@ -28,9 +27,8 @@ import be.thomasmore.voetbalapp2.ui.match.MatchFragment;
 public class MatchesFragment extends Fragment {
 
     FixtureAdapter fixtureAdapter;
-    private ArrayAdapter aAdapter;
     List<Fixture> lijstmatches = new ArrayList<>();
-    private String[] users = { "Suresh Dasari", "Rohini Alavala", "Trishika Dasari", "Praveen Alavala", "Madav Sai"};
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,8 +43,6 @@ public class MatchesFragment extends Fragment {
 
         final ListView listViewMatches =
                 (ListView) rootView.findViewById(R.id.listViewMatches);
-        // Assign adapter to ListView
-        aAdapter = new ArrayAdapter(rootView.getContext(), android.R.layout.simple_list_item_1, users);
 
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
@@ -54,7 +50,7 @@ public class MatchesFragment extends Fragment {
                 fixtureAdapter = new FixtureAdapter(rootView.getContext(), lijstmatches);
                 listViewMatches.setAdapter(fixtureAdapter);
             }
-        }, 1000);
+        }, 500);
         Log.d("Count: ", Integer.toString(lijstmatches.size()));
         ((MainActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         listViewMatches.setOnItemClickListener(new AdapterView.OnItemClickListener() {

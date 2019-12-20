@@ -7,18 +7,48 @@ public class Fixture {
     private String home_name;
     private String away_name;
     private String competitionId;
+    private int home_score;
+    private int away_score;
+    private String status;
 
     public Fixture() {
 
     }
 
-    public Fixture(String id, String time, String date, String home_name, String away_name, String competitionId) {
+    public Fixture(String id, String time, String date, String home_name, String away_name, String competitionId, int home_score, int away_score, String status) {
         this.id = id;
         this.time = time;
         this.date = date;
         this.home_name = home_name;
         this.away_name = away_name;
         this.competitionId = competitionId;
+        this.home_score = home_score;
+        this.away_score = away_score;
+        this.status = status;
+    }
+
+    public int getHome_score() {
+        return home_score;
+    }
+
+    public void setHome_score(int home_score) {
+        this.home_score = home_score;
+    }
+
+    public int getAway_score() {
+        return away_score;
+    }
+
+    public void setAway_score(int away_score) {
+        this.away_score = away_score;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public String getDate() {

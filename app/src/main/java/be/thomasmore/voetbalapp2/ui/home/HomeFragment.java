@@ -78,13 +78,13 @@ public class HomeFragment extends Fragment {
 
     private void vulPlatforms()
     {
-        competities.add(new Competitie(68,"Jupiler Pro League", "be"));
-        competities.add(new Competitie(196,"Eredivisie", "nl"));
-        competities.add(new Competitie(5,"Ligue 1", "fr"));
-        competities.add(new Competitie(2,"Premier League", "uk"));
-        competities.add(new Competitie(4,"Serie A", "it"));
-        competities.add(new Competitie(1,"Bundesliga", "de"));
-        competities.add(new Competitie(3,"La liga", "es"));
+        competities.add(new Competitie(1,"Jupiler Pro League", "be"));
+        competities.add(new Competitie(2,"Eredivisie", "nl"));
+        competities.add(new Competitie(3,"Ligue 1", "fr"));
+        competities.add(new Competitie(4,"Premier League", "uk"));
+        competities.add(new Competitie(5,"Serie A", "it"));
+        competities.add(new Competitie(6,"Bundesliga", "de"));
+        competities.add(new Competitie(7,"La liga", "es"));
         competities.add(new Competitie(8,"Primeira Liga", "pt"));
     }
 }

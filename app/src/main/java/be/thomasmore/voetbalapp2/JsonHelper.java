@@ -133,6 +133,23 @@ public class JsonHelper {
         return stats;
     }
 
+    public JSONObject getJsonFixture (Fixture fixture) {
+        JSONObject jsonObjectStudent = new JSONObject();
+        try {
+            jsonObjectStudent.put("competitionId", fixture.getCompetitionId());
+            jsonObjectStudent.put("date", fixture.getDate());
+            jsonObjectStudent.put("time", fixture.getTime());
+            jsonObjectStudent.put("home_name", fixture.getHome_name());
+            jsonObjectStudent.put("away_name", fixture.getAway_name());
+            jsonObjectStudent.put("home_score", fixture.getHome_score());
+            jsonObjectStudent.put("away_score", fixture.getAway_score());
+            jsonObjectStudent.put("status", fixture.getStatus());
+        } catch (JSONException e) {
+            Log.e("JSON Parser", "Error parsing data " + e.toString());
+        }
+        return jsonObjectStudent;
+    }
+
 }
 
 
