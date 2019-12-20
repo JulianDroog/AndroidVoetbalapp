@@ -1,8 +1,15 @@
 package be.thomasmore.voetbalapp2.helpers;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import be.thomasmore.voetbalapp2.models.Fixture;
 
 public class DatabaseHelper extends SQLiteOpenHelper{
 
@@ -30,10 +37,12 @@ public class DatabaseHelper extends SQLiteOpenHelper{
                 "away_team TEXT, " +
                 "date TEXT, " +
                 "time TEXT, " +
+                "competitionId TEXT, " +
                 "home_score INTEGER, " +
                 "away_score INTEGER, " +
                 "status TEXT )";
         db.execSQL(CREATE_TABLE_Fixture);
+        insertPresidents(db);
     }
 
     // methode wordt uitgevoerd als database geupgrade wordt
@@ -46,124 +55,68 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         onCreate(db);
     }
 
+    private void insertPresidents(SQLiteDatabase db) {
+        db.execSQL("INSERT INTO fixture (home_team, away_team, date,time,competitionId, home_score, away_score, status) VALUES ('PSG', 'LILLE', '15/05/2019', '10:00', '1', 0,3,'finished');");
+        db.execSQL("INSERT INTO fixture (home_team, away_team, date,time,competitionId, home_score, away_score, status) VALUES ('PSG', 'Rennes', '15/05/2019', '10:00', '1', 3,3,'finished');");
+        db.execSQL("INSERT INTO fixture (home_team, away_team, date,time,competitionId, home_score, away_score, status) VALUES ('PSG', 'Barcelona', '15/05/2019', '10:00', '1', 3,0,'finished');");
+    }
+
     //-------------------------------------------------------------------------------------------------
     //  CRUD Operations
     //-------------------------------------------------------------------------------------------------
 
-    // insert-methode met ContentValues
-//    public long insertPresident(President president) {
-//        SQLiteDatabase db = this.getWritableDatabase();
-//
-//        ContentValues values = new ContentValues();
-//        values.put("name", president.getName());
-//        values.put("term", president.getTerm());
-//        values.put("partyId", president.getPartyId());
-//
-//        long id = db.insert("president", null, values);
-//
-//        db.close();
-//        return id;
-//    }
+    public long insertPresident(Fixture fixture) {
+        SQLiteDatabase db = this.getWritableDatabase();
 
-//    // update-methode met ContentValues
-//    public boolean updatePresident(President president) {
-//        SQLiteDatabase db = this.getWritableDatabase();
-//
-//        ContentValues values = new ContentValues();
-//        values.put("name", president.getName());
-//        values.put("term", president.getTerm());
-//        values.put("partyId", president.getPartyId());
-//
-//        int numrows = db.update(
-//                "president",
-//                values,
-//                "id = ?",
-//                new String[] { String.valueOf(president.getId()) });
-//
-//        db.close();
-//        return numrows > 0;
-//    }
+        ContentValues values = new ContentValues();
+        values.put("home_name", fixture.getHome_name());
+        values.put("away_name", fixture.getHome_name());
+        values.put("status", fixture.getStatus());
+        values.put("date", fixture.getDate());
+        values.put("time", fixture.getTime());
+        values.put("home_score", fixture.getHome_score());
+        values.put("away_score", fixture.getAway_score());
 
-//    // delete-methode
-//    public boolean deletePresident(long id) {
-//        SQLiteDatabase db = this.getWritableDatabase();
-//
-//        int numrows = db.delete(
-//                "president",
-//                "id = ?",
-//                new String[] { String.valueOf(id) });
-//
-//        db.close();
-//        return numrows > 0;
-//    }
 
-//    // query-methode
-//    public President getPresident(long id) {
-//        SQLiteDatabase db = this.getReadableDatabase();
-//
-//        Cursor cursor = db.query(
-//                "president",      // tabelnaam
-//                new String[] { "id", "name", "term", "partyId" }, // kolommen
-//                "id = ?",  // selectie
-//                new String[] { String.valueOf(id) }, // selectieparameters
-//                null,           // groupby
-//                null,           // having
-//                null,           // sorting
-//                null);          // ??
-//
-//        President president = new President();
-//
-//        if (cursor.moveToFirst()) {
-//            president = new President(cursor.getLong(0),
-//                    cursor.getString(1), cursor.getString(2), cursor.getLong(3));
-//        }
-//        cursor.close();
-//        db.close();
-//        return president;
-//    }
+        long id = db.insert("fixture", null, values);
 
-//    // rawQuery-methode
-//    public List<President> getPresidents() {
-//        List<President> lijst = new ArrayList<President>();
-//
-//        String selectQuery = "SELECT  * FROM president ORDER BY term";
-//
-//        SQLiteDatabase db = this.getReadableDatabase();
-//        Cursor cursor = db.rawQuery(selectQuery, null);
-//
-//        if (cursor.moveToFirst()) {
-//            do {
-//                President president = new President(cursor.getLong(0),
-//                        cursor.getString(1), cursor.getString(2), cursor.getLong(3));
-//                lijst.add(president);
-//            } while (cursor.moveToNext());
-//        }
-//
-//        cursor.close();
-//        db.close();
-//        return lijst;
-//    }
+        db.close();
+        return id;
+    }
 
-//    // rawQuery-methode
-//    public List<Party> getParties() {
-//        List<Party> lijst = new ArrayList<Party>();
-//
-//        String selectQuery = "SELECT  * FROM party ORDER BY name";
-//
-//        SQLiteDatabase db = this.getReadableDatabase();
-//        Cursor cursor = db.rawQuery(selectQuery, null);
-//
-//        if (cursor.moveToFirst()) {
-//            do {
-//                Party party = new Party(cursor.getLong(0), cursor.getString(1));
-//                lijst.add(party);
-//            } while (cursor.moveToNext());
-//        }
-//
-//        cursor.close();
-//        db.close();
-//        return lijst;
-//    }
+    // delete-methode
+    public boolean deleteFixture(String id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        int numrows = db.delete(
+                "fixture",
+                "id = ?",
+                new String[] { String.valueOf(id) });
+
+        db.close();
+        return numrows > 0;
+    }
+
+    // rawQuery-methode
+    public List<Fixture> getFixtures() {
+        List<Fixture> lijst = new ArrayList<Fixture>();
+
+        String selectQuery = "SELECT  * FROM fixture";
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                Fixture fixture = new Fixture(cursor.getString(0), cursor.getString(4), cursor.getString(3), cursor.getString(1), cursor.getString(2), cursor.getString(5), cursor.getInt(6), cursor.getInt(7), cursor.getString(8));
+                lijst.add(fixture);
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+        return lijst;
+    }
 
 //    // rawQuery-methode
 //    public int getCountPresidents() {

@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
@@ -50,9 +51,12 @@ public class MatchFragment extends Fragment {
         tabLayout = (TabLayout) rootView.findViewById(R.id.tablayout_id);
         viewPager = (ViewPager) rootView.findViewById(R.id.viewpager_id);
 
-        final ViewPagerAdapter adapter = new ViewPagerAdapter(getFragmentManager());
+        final ViewPagerAdapter adapter = new ViewPagerAdapter(getChildFragmentManager());
         final TextView textviewThuis = (TextView) rootView.findViewById(R.id.home_team2);
         final TextView textviewUit = (TextView) rootView.findViewById(R.id.away_team2);
+        final TextView textviewThuisScore = (TextView) rootView.findViewById(R.id.home_score2);
+        final TextView textviewUitScore = (TextView) rootView.findViewById(R.id.away_team_score2);
+        final TextView textViewTijd = (TextView) rootView.findViewById(R.id.time2);
 
         adapter.AddFragment(new FragmentLineup(), "Lineup");
         adapter.AddFragment(new FragmentStats(), "Stats");
@@ -61,6 +65,9 @@ public class MatchFragment extends Fragment {
             public void run() {
                 textviewThuis.setText(fixture.getHome_name());
                 textviewUit.setText(fixture.getAway_name());
+                textviewThuisScore.setText(Integer.toString(fixture.getHome_score()));
+                textviewUitScore.setText(Integer.toString(fixture.getAway_score()));
+                textViewTijd.setText(fixture.getTime());
                 viewPager.setAdapter(adapter);
                 tabLayout.setupWithViewPager(viewPager);
             }
@@ -82,5 +89,10 @@ public class MatchFragment extends Fragment {
                 fixture = jsonHelper.getJsonFixture(result);
             }
         });
+    }
+
+    public void onResume() {
+        super.onResume();
+        ActionBar actionBar = ((MainActivity)getActivity()).getSupportActionBar();
     }
 }
