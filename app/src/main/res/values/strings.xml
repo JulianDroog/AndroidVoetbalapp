@@ -4,4 +4,9 @@
     <string name="title_favoriteTeams">Teams</string>
     <string name="title_favoriteMatches">Matches</string>
     <string name="title_settings">Settings</string>
+    <string name="app_informatie">APP Informatie</string>
+    <string name="appinfo">Footscore is een app die live voetbaluitslagen toont
+        en waar de gebruiker zijn favoriete wedstrijden en teams kan selecteren.
+        Footscore geeft dus de mogelijkheid om competities per land op te bekijken. Per competitie is ook elke wedstrijd te zien die gespeeld wordt.
+        De favorieten die de gebruiker aanduid kun je terugvinden op de pagina "Favorieten". In deze Info pagina kun je informatie over de app terugvinden en andere zaken.</string>
 </resources>
