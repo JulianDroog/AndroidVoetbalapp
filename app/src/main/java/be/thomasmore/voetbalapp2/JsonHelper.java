@@ -16,16 +16,16 @@ public class JsonHelper {
     public List<Fixture> getFixtures(String jsonTekst) {
         List<Fixture> lijst = new ArrayList<Fixture>();
         try {
-            JSONObject jsonObject = new JSONObject(jsonTekst);
-            JSONArray jsonArrayFixtures = jsonObject.getJSONArray("fixtures");
+            JSONArray jsonArrayFixtures = new JSONArray(jsonTekst);
             for (int i = 0; i < jsonArrayFixtures.length(); i++) {
                 JSONObject jsonObjectFixture = jsonArrayFixtures.getJSONObject(i);
                 Fixture fixture = new Fixture();
-                fixture.setId(jsonObjectFixture.getLong("id"));
+                fixture.setId(jsonObjectFixture.getString("_id"));
                 fixture.setDate(jsonObjectFixture.getString("date"));
                 fixture.setTime(jsonObjectFixture.getString("time"));
                 fixture.setHome_name(jsonObjectFixture.getString("home_name"));
                 fixture.setAway_name(jsonObjectFixture.getString("away_name"));
+                fixture.setCompetitionId(jsonObjectFixture.getString("competitionId"));
                 lijst.add(fixture);
             }
         } catch (JSONException e) {
@@ -94,17 +94,21 @@ public class JsonHelper {
 //        return school;
 //    }
 //
-//    public JSONObject getJsonStudent (Student student) {
-//        JSONObject jsonObjectStudent = new JSONObject();
-//        try {
-//            jsonObjectStudent.put("voornaam", student.getVoornaam());
-//            jsonObjectStudent.put("naam", student.getNaam());
-//            jsonObjectStudent.put("klas", student.getKlas());
-//        } catch (JSONException e) {
-//            Log.e("JSON Parser", "Error parsing data " + e.toString());
-//        }
-//        return jsonObjectStudent;
-//    }
+    public Fixture getJsonFixture (String result) {
+        Fixture fixture = new Fixture();
+        try {
+            JSONObject jsonObjectFixture = new JSONObject(result);
+            fixture.setId(jsonObjectFixture.getString("_id"));
+            fixture.setDate(jsonObjectFixture.getString("date"));
+            fixture.setTime(jsonObjectFixture.getString("time"));
+            fixture.setHome_name(jsonObjectFixture.getString("home_name"));
+            fixture.setAway_name(jsonObjectFixture.getString("away_name"));
+            fixture.setCompetitionId(jsonObjectFixture.getString("competitionId"));
+        } catch (JSONException e) {
+            Log.e("JSON Parser", "Error parsing data " + e.toString());
+        }
+        return fixture;
+    }
 
 }
 

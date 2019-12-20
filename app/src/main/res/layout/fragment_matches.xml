@@ -7,11 +7,14 @@
     <ListView
         android:id="@+id/listViewMatches"
         android:layout_width="fill_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_height="fill_parent"
-        android:dividerHeight="1dp"
+        android:dividerHeight="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:divider="@color/colorPrimaryDark" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

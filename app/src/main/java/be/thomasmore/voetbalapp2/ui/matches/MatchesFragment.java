@@ -1,6 +1,7 @@
 package be.thomasmore.voetbalapp2.ui.matches;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,56 +29,71 @@ public class MatchesFragment extends Fragment {
 
     FixtureAdapter fixtureAdapter;
     private ArrayAdapter aAdapter;
-    final List<Fixture> lijstmatches = new ArrayList<>();
+    List<Fixture> lijstmatches = new ArrayList<>();
     private String[] users = { "Suresh Dasari", "Rohini Alavala", "Trishika Dasari", "Praveen Alavala", "Madav Sai"};
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
         String compid = Integer.toString(getArguments().getInt("compId"));
-        View rootView = inflater.inflate(R.layout.fragment_matches,
+        final View rootView = inflater.inflate(R.layout.fragment_matches,
                 container, false);
-        leesMatches();
-        Log.d("Count: ", Integer.toString(lijstmatches.size()));
-        ListView listViewMatches =
+        if (lijstmatches != null){
+            lijstmatches.clear();
+        }
+        leesMatches(compid);
+
+        final ListView listViewMatches =
                 (ListView) rootView.findViewById(R.id.listViewMatches);
-//        fixtureAdapter = new FixtureAdapter(rootView.getContext(), lijstmatches);
         // Assign adapter to ListView
         aAdapter = new ArrayAdapter(rootView.getContext(), android.R.layout.simple_list_item_1, users);
-        listViewMatches.setAdapter(aAdapter);
+
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            public void run() {
+                fixtureAdapter = new FixtureAdapter(rootView.getContext(), lijstmatches);
+                listViewMatches.setAdapter(fixtureAdapter);
+            }
+        }, 300);
+        Log.d("Count: ", Integer.toString(lijstmatches.size()));
         ((MainActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         listViewMatches.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView parentView, View childView, int position, long id) {
                 Fragment matchFragment = new MatchFragment();
                 Bundle bundle = new Bundle();
-//                Competitie competitie = users.get(position);
-//                int compId = competitie.getId();
-//                bundle.putInt("compId", compId);
-//                matchesFragment.setArguments(bundle);
+                Fixture fixture = lijstmatches.get(position);
+                String fixId = fixture.getId();
+                bundle.putString("fixId", fixId);
+                matchFragment.setArguments(bundle);
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.nav_host_fragment, matchFragment);
                 transaction.addToBackStack(null);
                 transaction.commit();
             }
         });
+
         return rootView;
 
     }
 
 
-    private void leesMatches()
+    private void leesMatches(String id)
     {
+        Log.d("id: ", id);
         HttpReader httpReader = new HttpReader();
+        httpReader.execute("http://10.0.2.2:5000/api/fixtures/" + id);
         httpReader.setOnResultReadyListener(new HttpReader.OnResultReadyListener() {
             @Override
             public void resultReady(String result) {
                 JsonHelper jsonHelper = new JsonHelper();
                 lijstmatches.addAll(jsonHelper.getFixtures(result));
-
+                for (Fixture item: lijstmatches
+                     ) {
+                    Log.d("test", item.getAway_name());
+                }
             }
         });
-        httpReader.execute("http://10.0.2.2:80/soccerapi/");
     }
 
 }

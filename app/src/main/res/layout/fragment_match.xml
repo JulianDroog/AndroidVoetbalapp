@@ -1,20 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:background="@color/colorAccent">
 
-    <TextView
-        android:id="@+id/text_notifications"
+    <LinearLayout
+        android:id="@+id/scorecard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:background="@color/colorAccent"
+       android:layout_alignParentTop="true"
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp"
+        android:gravity="center">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/home_score2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:text="0"
+            android:textColor="#000000"
+            android:textSize="10pt" />
+
+        <TextView
+            android:id="@+id/score_divider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:text="@string/score_divider_sign"
+            android:textColor="#000000"
+            android:textSize="10pt" />
+
+        <TextView
+            android:id="@+id/away_team_score2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:text="3"
+            android:textColor="#000000"
+            android:textSize="10pt" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/scorecard2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:layout_below="@id/scorecard"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/home_team2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="test"
+            android:textColor="#000000"
+            app:autoSizeTextType="uniform"
+            android:textSize="9pt"/>
+
+        <TextView
+            android:id="@+id/time2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="16:00"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:textColor="#000000"
+            app:autoSizeTextType="uniform"
+            android:textSize="6pt" />
+
+        <TextView
+            android:id="@+id/away_team2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="test"
+            android:textColor="#000000"
+            app:autoSizeTextType="uniform"
+            android:textSize="9pt"/>
+    </LinearLayout>
+
+    <com.google.android.material.tabs.TabLayout
+    android:layout_width="match_parent"
+    android:id="@+id/tablayout_id"
+    android:layout_height="wrap_content"
+    app:tabGravity="center"
+    android:background="@drawable/tab_layout_background"
+    app:tabMode="fixed"
+    app:tabBackground="@drawable/tab_layout_selector"
+    app:tabSelectedTextColor="@color/colorAccent"
+    app:tabIndicatorHeight="0dp"
+    app:tabRippleColor="@null"
+    app:tabTextAppearance="@style/TabTextAppearance"
+    android:layout_margin="20dp"
+        android:layout_below="@id/scorecard2"
+    />
+    <androidx.viewpager.widget.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/viewpager_id"
+        android:layout_below="@id/tablayout_id"/>
+
+</RelativeLayout>
