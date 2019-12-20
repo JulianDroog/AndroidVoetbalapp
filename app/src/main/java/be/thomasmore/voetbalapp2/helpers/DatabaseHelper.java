@@ -69,8 +69,8 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put("home_name", fixture.getHome_name());
-        values.put("away_name", fixture.getHome_name());
+        values.put("home_team", fixture.getHome_name());
+        values.put("away_team", fixture.getAway_name());
         values.put("status", fixture.getStatus());
         values.put("date", fixture.getDate());
         values.put("time", fixture.getTime());

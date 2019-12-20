@@ -20,6 +20,7 @@ import be.thomasmore.voetbalapp2.FixtureAdapter;
 import be.thomasmore.voetbalapp2.JsonHelper;
 import be.thomasmore.voetbalapp2.MainActivity;
 import be.thomasmore.voetbalapp2.R;
+import be.thomasmore.voetbalapp2.helpers.DatabaseHelper;
 import be.thomasmore.voetbalapp2.helpers.HttpReader;
 import be.thomasmore.voetbalapp2.models.Fixture;
 import be.thomasmore.voetbalapp2.ui.match.MatchFragment;
@@ -28,11 +29,13 @@ public class MatchesFragment extends Fragment {
 
     FixtureAdapter fixtureAdapter;
     List<Fixture> lijstmatches = new ArrayList<>();
+    private DatabaseHelper db;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+        db = new DatabaseHelper(getContext());
         String compid = Integer.toString(getArguments().getInt("compId"));
         final View rootView = inflater.inflate(R.layout.fragment_matches,
                 container, false);
@@ -59,6 +62,7 @@ public class MatchesFragment extends Fragment {
                 Fragment matchFragment = new MatchFragment();
                 Bundle bundle = new Bundle();
                 Fixture fixture = lijstmatches.get(position);
+                db.insertPresident(fixture);
                 String fixId = fixture.getId();
                 bundle.putString("fixId", fixId);
                 matchFragment.setArguments(bundle);
